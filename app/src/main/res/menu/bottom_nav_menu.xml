@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/ic_menu_steps"
         android:title="@string/menu_home" />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_menu_gallery"
+        android:icon="@drawable/ic_menu_running"
         android:title="@string/menu_gallery" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_menu_slideshow"
+        android:icon="@drawable/ic_menu_food"
         android:title="@string/menu_slideshow" />
 
     <item
         android:id="@+id/bottom_nav_profile"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/ic_menu_profile"
         android:title="Profile" />
 </menu>
