@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.trainingtracker.databinding.ActivityMainBinding
+import android.view.MenuItem
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,21 +38,34 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_steps, R.id.nav_gallery, R.id.nav_slideshow
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
+    }//end onCreate
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
-    }
+    }//end onCreateOptionsMenu
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-}
+    }//end onSupportNavigateUp
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            Snackbar.make(binding.appBarMain.toolbar, "This is some random text", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+
+            true
+        }
+        else -> {
+            //if we get here, the users action was not recognized
+            super.onOptionsItemSelected(item)
+        }
+    }//end onOptionsItemSelected
+}//end class MainActivity
