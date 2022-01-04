@@ -1,4 +1,5 @@
 <resources>
+    <!-- Find out which of these is still used -->
     <string name="app_name">TrainingTracker</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,4 +11,17 @@
     <string name="menu_home">Steps</string>
     <string name="menu_gallery">Running</string>
     <string name="menu_slideshow">Food Diary</string>
+
+    <string name="energyGoal_title">Calories Remaining</string>
+    <string name="energyGoal_goal_title">Goal</string>
+    <string name="energyGoal_goal_value">2,275</string>
+    <string name="energyGoal_goal_minus">-</string>
+    <string name="energyGoal_food_title">Food</string>
+    <string name="energyGoal_food_value">1,252</string>
+    <string name="energyGoal_food_plus">+</string>
+    <string name="energyGoal_exercise_title">Exercise</string>
+    <string name="energyGoal_exercise_value">634</string>
+    <string name="energyGoal_exercise_equals">=</string>
+    <string name="energyGoal_remaining_title">Remaining</string>
+    <string name="energyGoal_remaining_value">1,657</string>
 </resources>
