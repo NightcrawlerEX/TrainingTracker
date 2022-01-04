@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_settings -> {
-            Snackbar.make(binding.appBarMain.toolbar, "This is some random text", Snackbar.LENGTH_LONG)
+            Snackbar.make(binding.appBarMain.toolbar, "Todo: Put an action here", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
 
             true

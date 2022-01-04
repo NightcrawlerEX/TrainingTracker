@@ -126,23 +126,23 @@ class HomeFragment : Fragment(), SensorEventListener {
     }//end resetSteps
 
     private fun saveData() {
-        /*// Shared Preferences will allow us to save
+        // Shared Preferences will allow us to save
         // and retrieve data in the form of key,value pair.
         // In this function we will save data
-        val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putFloat("key1", previousTotalSteps)
-        editor.apply()*/
+        editor.apply()
     }//end saveData
 
     private fun loadData() {
-        /*// In this function we will retrieve data
-        val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        // In this function we will retrieve data
+        val sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         val savedNumber = sharedPreferences.getFloat("key1", 0f)
 
         // Log.d is used for debugging purposes
         Log.d("MainActivity", "$savedNumber")
-        previousTotalSteps = savedNumber*/
+        previousTotalSteps = savedNumber
     }//end loadData
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {

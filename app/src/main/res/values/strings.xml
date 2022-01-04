@@ -1,8 +1,6 @@
 <resources>
     <!-- Find out which of these is still used -->
     <string name="app_name">TrainingTracker</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">James Simpson</string>
     <string name="nav_header_subtitle">jsimp314159@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
