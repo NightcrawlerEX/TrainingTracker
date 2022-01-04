@@ -43,15 +43,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_goal_value"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/energyGoal_goal_minus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.3"
                 android:text="@string/energyGoal_goal_minus"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/energyGoal_food_value"
@@ -59,15 +59,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_food_value"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/energyGoal_food_plus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.3"
                 android:text="@string/energyGoal_food_plus"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/energyGoal_exercise_value"
@@ -75,15 +75,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_exercise_value"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/energyGoal_exercise_equals"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.3"
                 android:text="@string/energyGoal_exercise_equals"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/energyGoal_remaining_value"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_remaining_value"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -107,13 +107,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_goal_title"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
             <TextView
                 android:id="@+id/energyGoal_goal_empty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:layout_weight="1"/>
+                android:layout_weight="0.3"/>
 
             <TextView
                 android:id="@+id/energyGoal_food_title"
@@ -121,13 +121,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_food_title"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
             <TextView
                 android:id="@+id/energyGoal_food_empty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:layout_weight="1"/>
+                android:layout_weight="0.3"/>
 
             <TextView
                 android:id="@+id/energyGoal_exercise_title"
@@ -135,13 +135,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_exercise_title"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
             <TextView
                 android:id="@+id/energyGoal_exercise_empty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:layout_weight="1"/>
+                android:layout_weight="0.3"/>
 
             <TextView
                 android:id="@+id/energyGoal_remaining_title"
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/energyGoal_remaining_title"
-                android:textAlignment="textStart" />
+                android:textAlignment="center" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
