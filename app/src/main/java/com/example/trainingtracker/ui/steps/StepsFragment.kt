@@ -1,4 +1,4 @@
-package com.example.trainingtracker.ui.home
+package com.example.trainingtracker.ui.steps
 
 import android.content.Context
 import android.hardware.Sensor
@@ -11,13 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.trainingtracker.R
-import com.example.trainingtracker.databinding.FragmentHomeBinding
+import com.example.trainingtracker.databinding.FragmentStepsBinding
 //for logging
 import android.util.Log
-import android.widget.Toast
 
 private const val TAG = "StepFragmentLog" //for debugging
 /*
@@ -32,8 +30,8 @@ DEBUG and VERBOSE are not present in release builds
 
 class HomeFragment : Fragment(), SensorEventListener {
 
-    private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var stepsViewModel: StepsViewModel
+    private var _binding: FragmentStepsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -52,10 +50,10 @@ class HomeFragment : Fragment(), SensorEventListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        stepsViewModel =
+            ViewModelProvider(this).get(StepsViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentStepsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         /*val textView: TextView = binding.textHome

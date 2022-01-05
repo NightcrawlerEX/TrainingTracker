@@ -1,4 +1,4 @@
-package com.example.trainingtracker.ui.gallery
+package com.example.trainingtracker.ui.running
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.trainingtracker.R
-import com.example.trainingtracker.databinding.FragmentGalleryBinding
-import android.util.Log
+import com.example.trainingtracker.databinding.FragmentRunningBinding
 
 private const val TAG = "RunningFragmentLog" //for debugging
 /*
@@ -25,8 +23,8 @@ DEBUG and VERBOSE are not present in release builds
 
 class GalleryFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
-    private var _binding: FragmentGalleryBinding? = null
+    private lateinit var runningViewModel: RunningViewModel
+    private var _binding: FragmentRunningBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,14 +35,13 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
-
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        runningViewModel =
+            ViewModelProvider(this).get(RunningViewModel::class.java)
+        _binding = FragmentRunningBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        runningViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

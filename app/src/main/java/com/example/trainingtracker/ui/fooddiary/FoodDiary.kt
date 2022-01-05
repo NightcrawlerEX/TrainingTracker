@@ -1,4 +1,4 @@
-package com.example.trainingtracker.ui.slideshow
+package com.example.trainingtracker.ui.fooddiary
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.trainingtracker.R
-import com.example.trainingtracker.databinding.FragmentSlideshowBinding
-import android.util.Log
+import com.example.trainingtracker.databinding.FragmentFooddiaryBinding
 
 private const val TAG = "FoodDiaryFragmentLog" //for debugging
 /*
@@ -25,8 +23,8 @@ DEBUG and VERBOSE are not present in release builds
 
 class SlideshowFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SlideshowViewModel
-    private var _binding: FragmentSlideshowBinding? = null
+    private lateinit var foodDiaryViewModel: FoodDiaryViewModel
+    private var _binding: FragmentFooddiaryBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,14 +35,14 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        foodDiaryViewModel =
+            ViewModelProvider(this).get(FoodDiaryViewModel::class.java)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentFooddiaryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
+        foodDiaryViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

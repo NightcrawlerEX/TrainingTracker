@@ -1,10 +1,10 @@
-package com.example.trainingtracker.ui.home
+package com.example.trainingtracker.ui.steps
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class StepsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is Running Fragment"
