@@ -10,4 +10,4 @@ class SlideshowViewModel : ViewModel() {
         value = "This is Food Diary Fragment"
     }
     val text: LiveData<String> = _text
-}
+}//end SlideshowViewModel
