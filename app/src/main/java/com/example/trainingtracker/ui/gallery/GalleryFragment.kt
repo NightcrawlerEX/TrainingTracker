@@ -10,6 +10,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.trainingtracker.R
 import com.example.trainingtracker.databinding.FragmentGalleryBinding
+import android.util.Log
+
+private const val TAG = "RunningFragmentLog" //for debugging
+/*
+ERROR       - Log.e(TAG, "")
+WARN        - Log.w(TAG, "")
+INFO        - Log.i(TAG, "")
+DEBUG       - Log.d(TAG, "")
+VERBOSE     - Log.v(TAG, "")
+
+DEBUG and VERBOSE are not present in release builds
+ */
 
 class GalleryFragment : Fragment() {
 
@@ -36,10 +48,10 @@ class GalleryFragment : Fragment() {
             textView.text = it
         })
         return root
-    }
+    }//endOnCreateView
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-}
+    }//end onDestroyView
+}//end class GalleryFragment

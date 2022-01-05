@@ -10,6 +10,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.trainingtracker.R
 import com.example.trainingtracker.databinding.FragmentSlideshowBinding
+import android.util.Log
+
+private const val TAG = "FoodDiaryFragmentLog" //for debugging
+/*
+ERROR       - Log.e(TAG, "")
+WARN        - Log.w(TAG, "")
+INFO        - Log.i(TAG, "")
+DEBUG       - Log.d(TAG, "")
+VERBOSE     - Log.v(TAG, "")
+
+DEBUG and VERBOSE are not present in release builds
+ */
 
 class SlideshowFragment : Fragment() {
 

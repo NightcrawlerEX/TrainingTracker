@@ -18,8 +18,17 @@ import com.example.trainingtracker.databinding.FragmentHomeBinding
 //for logging
 import android.util.Log
 import android.widget.Toast
-private const val TAG = "StepFragment"
 
+private const val TAG = "StepFragmentLog" //for debugging
+/*
+ERROR       - Log.e(TAG, "")
+WARN        - Log.w(TAG, "")
+INFO        - Log.i(TAG, "")
+DEBUG       - Log.d(TAG, "")
+VERBOSE     - Log.v(TAG, "")
+
+DEBUG and VERBOSE are not present in release builds
+ */
 
 class HomeFragment : Fragment(), SensorEventListener {
 

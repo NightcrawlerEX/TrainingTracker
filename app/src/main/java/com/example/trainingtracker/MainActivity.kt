@@ -13,6 +13,17 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.trainingtracker.databinding.ActivityMainBinding
 import android.view.MenuItem
+import android.util.Log
+private const val TAG = "MainActivityLog" //for debugging
+/*
+ERROR       - Log.e(TAG, "")
+WARN        - Log.w(TAG, "")
+INFO        - Log.i(TAG, "")
+DEBUG       - Log.d(TAG, "")
+VERBOSE     - Log.v(TAG, "")
+
+DEBUG and VERBOSE are not present in release builds
+ */
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,10 +44,10 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_steps, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
-        )
+            ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        Log.d(TAG, "onCreate")
     }//end onCreate
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
