@@ -1,4 +1,4 @@
-package com.example.trainingtracker.ui.steps
+package com.nex.trainingtracker.ui.steps
 
 import android.content.Context
 import android.hardware.Sensor
@@ -12,8 +12,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.trainingtracker.R
-import com.example.trainingtracker.databinding.FragmentStepsBinding
+import com.nex.trainingtracker.R
+import com.nex.trainingtracker.databinding.FragmentStepsBinding
 //for logging
 import android.util.Log
 

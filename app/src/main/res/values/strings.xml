@@ -9,6 +9,7 @@
     <string name="menu_home">Steps</string>
     <string name="menu_gallery">Running</string>
     <string name="menu_slideshow">Food Diary</string>
+    <string name="menu_profile">Profile</string>
 
     <string name="energyGoal_title">Calories Remaining</string>
     <string name="energyGoal_goal_title">Goal</string>

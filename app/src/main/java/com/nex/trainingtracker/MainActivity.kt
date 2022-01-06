@@ -1,4 +1,4 @@
-package com.example.trainingtracker
+package com.nex.trainingtracker
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.example.trainingtracker.databinding.ActivityMainBinding
+import com.nex.trainingtracker.databinding.ActivityMainBinding
 import android.view.MenuItem
 import android.util.Log
 private const val TAG = "MainActivityLog" //for debugging
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_steps, R.id.nav_running, R.id.nav_foodDiary
+                R.id.nav_steps, R.id.nav_running, R.id.nav_foodDiary, R.id.nav_profile
             ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

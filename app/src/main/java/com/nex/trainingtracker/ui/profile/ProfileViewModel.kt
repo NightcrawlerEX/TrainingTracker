@@ -1,13 +1,13 @@
-package com.example.trainingtracker.ui.fooddiary
+package com.nex.trainingtracker.ui.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class FoodDiaryViewModel : ViewModel() {
+class ProfileViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Food Diary Fragment"
+        value = "This is Profile Fragment"
     }
     val text: LiveData<String> = _text
-}//end SlideshowViewModel
+}//end ProfileViewModel

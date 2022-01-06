@@ -7,19 +7,25 @@
 
     <fragment
         android:id="@+id/nav_steps"
-        android:name="com.example.trainingtracker.ui.steps.HomeFragment"
+        android:name="com.nex.trainingtracker.ui.steps.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_steps" />
 
     <fragment
         android:id="@+id/nav_running"
-        android:name="com.example.trainingtracker.ui.running.GalleryFragment"
+        android:name="com.nex.trainingtracker.ui.running.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_running" />
 
     <fragment
         android:id="@+id/nav_foodDiary"
-        android:name="com.example.trainingtracker.ui.fooddiary.SlideshowFragment"
+        android:name="com.nex.trainingtracker.ui.foodDiary.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_fooddiary" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.nex.trainingtracker.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
