@@ -23,4 +23,8 @@
     <string name="energyGoal_exercise_equals">=</string>
     <string name="energyGoal_remaining_title">Remaining</string>
     <string name="energyGoal_remaining_value">1,657</string>
+
+    <string name="profile_weight">Weight</string>
+    <string name="profile_height">Height</string>
+    <string name="profile_bmr">BMR</string>
 </resources>
