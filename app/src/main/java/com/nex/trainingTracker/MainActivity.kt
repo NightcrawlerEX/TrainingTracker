@@ -1,4 +1,4 @@
-package com.nex.trainingtracker
+package com.nex.trainingTracker
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.nex.trainingtracker.databinding.ActivityMainBinding
+import com.nex.trainingTracker.databinding.ActivityMainBinding
 import android.view.MenuItem
 import android.util.Log
 private const val TAG = "MainActivityLog" //for debugging

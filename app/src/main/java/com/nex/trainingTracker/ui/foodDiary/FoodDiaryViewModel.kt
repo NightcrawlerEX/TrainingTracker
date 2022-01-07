@@ -1,4 +1,4 @@
-package com.nex.trainingtracker.ui.foodDiary
+package com.nex.trainingTracker.ui.foodDiary
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

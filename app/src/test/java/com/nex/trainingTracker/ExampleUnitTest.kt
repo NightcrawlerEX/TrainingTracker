@@ -1,4 +1,4 @@
-package com.nex.trainingtracker
+package com.nex.trainingTracker
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.nex.trainingtracker.ui.steps
+package com.nex.trainingTracker.ui.steps
 
 import android.content.Context
 import android.hardware.Sensor
@@ -12,8 +12,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.nex.trainingtracker.R
-import com.nex.trainingtracker.databinding.FragmentStepsBinding
+import com.nex.trainingTracker.R
+import com.nex.trainingTracker.databinding.FragmentStepsBinding
 //for logging
 import android.util.Log
 
@@ -28,7 +28,7 @@ VERBOSE     - Log.v(TAG, "")
 DEBUG and VERBOSE are not present in release builds
  */
 
-class HomeFragment : Fragment(), SensorEventListener {
+class StepsFragment : Fragment(), SensorEventListener {
 
     private lateinit var stepsViewModel: StepsViewModel
     private var _binding: FragmentStepsBinding? = null

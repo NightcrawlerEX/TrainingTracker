@@ -1,15 +1,12 @@
-package com.nex.trainingtracker.ui.profile
+package com.nex.trainingTracker.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.nex.trainingtracker.databinding.FragmentFooddiaryBinding
-import com.nex.trainingtracker.databinding.FragmentProfileBinding
+import com.nex.trainingTracker.databinding.FragmentProfileBinding
 
 private const val TAG = "ProfileFragmentLog" //for debugging
 /*

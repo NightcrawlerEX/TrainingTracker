@@ -1,7 +1,5 @@
-package com.nex.trainingtracker.ui.profile
+package com.nex.trainingTracker.ui.profile
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ProfileViewModel : ViewModel() {
