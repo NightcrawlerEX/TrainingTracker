@@ -62,6 +62,20 @@
                     android:layout_height="wrap_content"
                     android:text="2300 calories"
                     android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/profile_energyTarget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_energyTarget"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/profile_energyTarget_display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2300 calories"
+                    android:textSize="24sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
