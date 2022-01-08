@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nex.trainingTracker.databinding.ActivityMainBinding
 import android.view.MenuItem
 import android.util.Log
+import androidx.fragment.app.FragmentManager
+
 private const val TAG = "MainActivityLog" //for debugging
 /*
 ERROR       - Log.e(TAG, "")
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private val uniqueString = "TrainingTracker"//unique string for shared preferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +69,32 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(binding.appBarMain.toolbar, "Todo: Put an action here", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
 
+            true
+        }
+        R.id.action_changeUnits -> {
+            Log.d(TAG, "Change Units selected from action bar")
+            val preferences = getPreferences(MODE_PRIVATE)
+            val currentUser = preferences.getString("currentUser","")
+            if(currentUser.isNullOrBlank()){
+                Log.d(TAG, "Could not find current user")
+                true
+            }//endif
+            Log.d(TAG, "currentUser: $currentUser")
+            val sharedPreferencesFilename = uniqueString + currentUser
+            Log.d(TAG, "sharedPreferencesFilename: $sharedPreferencesFilename")
+            val sharedPreferences = getSharedPreferences(sharedPreferencesFilename, MODE_PRIVATE)
+            val systemOfMeasurement = sharedPreferences.getString("systemOfMeasurement", "")
+            Log.d(TAG, "systemOfMeasurement: $systemOfMeasurement")
+            val sharedPreferencesEdit = sharedPreferences.edit()
+            if(systemOfMeasurement == "imperial"){
+                Log.d(TAG, "> Changing to metric")
+                sharedPreferencesEdit.putString("systemOfMeasurement", "metric")
+            }
+            else{
+                Log.d(TAG, "> Changing to imperial")
+                sharedPreferencesEdit.putString("systemOfMeasurement", "imperial")
+            }//endif
+            sharedPreferencesEdit.apply()
             true
         }
         else -> {

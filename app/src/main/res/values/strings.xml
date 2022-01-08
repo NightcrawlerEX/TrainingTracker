@@ -4,12 +4,13 @@
     <string name="nav_header_title">James Simpson</string>
     <string name="nav_header_subtitle">jsimp314159@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
+    <!-- menu -->
     <string name="menu_home">Steps</string>
     <string name="menu_gallery">Running</string>
     <string name="menu_slideshow">Food Diary</string>
     <string name="menu_profile">Profile</string>
+    <string name="action_changeUnits">Change Units</string>
+    <string name="action_settings">Settings</string>
     <!-- steps -->
     <string name="steps_steps">Steps</string>
     <string name="goalCard_title_metric">Kilojoules Remaining</string>

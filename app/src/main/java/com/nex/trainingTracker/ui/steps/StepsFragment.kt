@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.nex.trainingTracker.databinding.FragmentStepsBinding
 //for logging
 import android.util.Log
+import com.google.android.material.snackbar.Snackbar
 
 private const val TAG = "StepFragmentLog" //for debugging
 /*
@@ -31,45 +32,33 @@ class StepsFragment : Fragment(), SensorEventListener {
 
     private lateinit var stepsViewModel: StepsViewModel
     private var _binding: FragmentStepsBinding? = null
-
-    private val uniqueString = "TrainingTracker"//unique string for shared preferences
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
-
     //step tracking stuff
     private var sensorManager: SensorManager? = null
-    private var running = false
+    private var bIsTrackingSteps = false
     private var totalSteps = 0f
     private var previousTotalSteps = 0f
+    private var stepsToday = 0
+    private var stepEnergyMetric = 0.0f//energy used for one step (kilojoules) [from preferences]
+    private var stepEnergyImperial = 0.0f//energy used for one step (kcal) [from preferences]
+    private var exerciseStepsMetric = 0.0f//total kj used for steps today
+    private var exerciseStepsImperial = 0.0f
 
+    private val uniqueString = "TrainingTracker"//unique string for shared preferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        stepsViewModel =
-            ViewModelProvider(this).get(StepsViewModel::class.java)
-
+        Log.d(TAG, "onCreateView()")
+        stepsViewModel = ViewModelProvider(this).get(StepsViewModel::class.java)
         _binding = FragmentStepsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        /*val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
-        //Log.i(TAG, "onCreateView")
         loadData()
-        // Adding a context of SENSOR_SERVICE as Sensor Manager
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         return root
     }//end onCreateView
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }//end onViewCreated
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -78,44 +67,66 @@ class StepsFragment : Fragment(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-        running = true
-        // Returns the number of steps taken by the user since the last reboot while activated
-        // This sensor requires permission android.permission.ACTIVITY_RECOGNITION.
-        // So don't forget to add the following permission in AndroidManifest.xml present in manifest folder of the app.
+        Log.d(TAG, "onResume()")
+        bIsTrackingSteps = true
         val stepSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
-
         if (stepSensor == null) {
-            // This will give a toast message to the user if there is no sensor in the device
-            //Toast.makeText(this, "No sensor detected on this device", Toast.LENGTH_SHORT).show()
+            //no step sensor available
         } else {
-            // Rate suitable for the user interface
             sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI)
         }//endif
+        loadData()
+
     }//end onResume
 
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop()")
+        sensorManager?.unregisterListener(this)
+    }//end onStop
+
     override fun onSensorChanged(event: SensorEvent?) {
-        if (running) {
+        Log.d(TAG, "onSensorChanged()")
+        if (bIsTrackingSteps) {
             totalSteps = event!!.values[0]
             // Current steps are calculated by taking the difference of total steps
             // and previous steps
-            val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
+            val deltaSteps = totalSteps.toInt() - previousTotalSteps.toInt()
+            stepsToday += deltaSteps
+            previousTotalSteps = totalSteps
+            exerciseStepsMetric = stepsToday * stepEnergyMetric
+            exerciseStepsImperial = stepsToday * stepEnergyImperial
             // It will show the current steps to the user
-            binding.tvStepsTaken.text = "$currentSteps"
+            binding.tvStepsTaken.text = "$stepsToday"
+            binding.exerciseStepsMetric.text = exerciseStepsMetric.toString() + "kj"
+            binding.exerciseStepsImperial.text = exerciseStepsImperial.toString() + "kcal"
+            Log.d(TAG,"deltaSteps: $deltaSteps ,stepsToday: $stepsToday , totalSteps: $totalSteps")
+            Log.d(TAG, "kj: $exerciseStepsMetric , kcal: $exerciseStepsImperial")
+            saveData()
         }//endif
     }//end onSensorChanged
 
     private fun saveData() {
-        // Shared Preferences will allow us to save
-        // and retrieve data in the form of key,value pair.
-        // In this function we will save data
-        val sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        Log.d(TAG, "saveData()")
+        val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val currentUser = preferences.getString("currentUser","")
+        if(currentUser.isNullOrBlank()){
+            Log.d(TAG, "Could not find current user")
+            return
+        }//endif
+        Log.d(TAG, "currentUser: $currentUser")
+        val sharedPreferencesFilename = uniqueString + currentUser
+        val sharedPreferences = requireActivity().getSharedPreferences(sharedPreferencesFilename, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putFloat("key1", previousTotalSteps)
+        editor.putInt("stepsToday", stepsToday)
+        editor.putFloat("previousTotalSteps", previousTotalSteps)
+        editor.putFloat("exerciseStepsMetric", exerciseStepsMetric)
+        editor.putFloat("exerciseStepsImperial", exerciseStepsImperial)
         editor.apply()
     }//end saveData
 
     private fun loadData() {
-        // In this function we will retrieve data
+        Log.d(TAG, "loadData()")
         val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val currentUser = preferences.getString("currentUser","")
         if(currentUser.isNullOrBlank()){
@@ -160,13 +171,21 @@ class StepsFragment : Fragment(), SensorEventListener {
             binding.goalCardExerciseValue.text = exerciseTotalMetric.toString()
             binding.goalCardRemainingValue.text = remainingMetric.toString()
         }//endif
+        stepsToday = sharedPreferences.getInt("stepsToday", 0)
+        previousTotalSteps = sharedPreferences.getFloat("previousTotalSteps", 0.0f)
+        stepEnergyMetric = sharedPreferences.getFloat("stepEnergyMetric", 0.0f)
+        stepEnergyImperial = sharedPreferences.getFloat("stepEnergyImperial", 0.0f)
+        Log.d(TAG,"stepsToday: $stepsToday")
+        Log.d(TAG, "previousTotalSteps: $previousTotalSteps")
+        Log.d(TAG, "stepEnergyMetric: $stepEnergyMetric")
+        Log.d(TAG, "stepEnergyImperial: $stepEnergyImperial")
     }//end loadData
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         // We do not have to write anything in this function for this app
     }//end onAccuracyChanged
 
-    /*private fun saveTestData() {
+    private fun saveTestData() {
         Log.d(TAG, "saveTestData()")
         val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val currentUser = preferences.getString("currentUser","")
@@ -179,13 +198,15 @@ class StepsFragment : Fragment(), SensorEventListener {
         Log.d(TAG, "sharedPreferencesFilename: $sharedPreferencesFilename")
         val sharedPreferences = requireActivity().getSharedPreferences(sharedPreferencesFilename, Context.MODE_PRIVATE)
         val sharedPreferencesEdit = sharedPreferences.edit()
-        sharedPreferencesEdit.putString("systemOfMeasurement", "metric")
+        /*sharedPreferencesEdit.putString("systemOfMeasurement", "metric")
         sharedPreferencesEdit.putFloat("foodTotalMetric", 1421.5f)
         sharedPreferencesEdit.putFloat("foodTotalImperial", 338.45f)
         sharedPreferencesEdit.putFloat("exerciseTotalMetric", 1786.2f)
         sharedPreferencesEdit.putFloat("exerciseTotalImperial", 425.29f)
         sharedPreferencesEdit.putFloat("remainingMetric",10024.728f)
-        sharedPreferencesEdit.putFloat("remainingImperial",2386.84f)
+        sharedPreferencesEdit.putFloat("remainingImperial",2386.84f)*/
+        sharedPreferencesEdit.putFloat("stepEnergyMetric",0.209662f)
+        sharedPreferencesEdit.putFloat("stepEnergyImperial",0.04991f)
         sharedPreferencesEdit.apply()
-    }//end saveTestData*/
+    }//end saveTestData
 }//end class HomeFragment
