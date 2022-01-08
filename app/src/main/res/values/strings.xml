@@ -25,8 +25,16 @@
     <string name="energyGoal_remaining_value">1,657</string>
 
     <string name="profile_weight">Weight</string>
+    <string name="profile_weight_metric_default">0.0kg</string>
+    <string name="profile_weight_imperial_default">0.0lbs</string>
     <string name="profile_height">Height</string>
+    <string name="profile_height_metric_default">0cm</string>
+    <string name="profile_height_imperial_default">0\'0\"</string>
     <string name="profile_bmr">BMR</string>
+    <string name="profile_bmr_metric_default">0kj</string>
+    <string name="profile_bmr_imperial_default">0kcal</string>
     <string name="profile_edit_button_description">Edit Weight/Height</string>
     <string name="profile_energyTarget">Target</string>
+    <string name="profile_energyTarget_metric_default">0kj</string>
+    <string name="profile_energyTarget_imperial_default">0kcal</string>
 </resources>

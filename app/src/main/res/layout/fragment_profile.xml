@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="20dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#ffffff" >
 
         <LinearLayout
@@ -15,7 +14,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,11 +29,17 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/profile_weight_display"
+                    android:id="@+id/profile_weight_metric"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="81.0kg"
+                    android:text="@string/profile_weight_metric_default"
                     android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/profile_weight_imperial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_weight_imperial_default"
+                    android:textSize="24sp"/>
                 <TextView
                     android:id="@+id/profile_height"
                     android:layout_width="match_parent"
@@ -43,10 +49,16 @@
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"/>
                 <TextView
-                    android:id="@+id/profile_height_display"
+                    android:id="@+id/profile_height_metric"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="193cm"
+                    android:text="@string/profile_height_metric_default"
+                    android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/profile_height_imperial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_height_imperial_default"
                     android:textSize="24sp" />
                 <TextView
                     android:id="@+id/profile_bmr"
@@ -57,10 +69,16 @@
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"/>
                 <TextView
-                    android:id="@+id/profile_bmr_display"
+                    android:id="@+id/profile_bmr_metric"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="2300 calories"
+                    android:text="@string/profile_bmr_metric_default"
+                    android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/profile_bmr_imperial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_bmr_imperial_default"
                     android:textSize="24sp" />
                 <TextView
                     android:id="@+id/profile_energyTarget"
@@ -71,10 +89,16 @@
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"/>
                 <TextView
-                    android:id="@+id/profile_energyTarget_display"
+                    android:id="@+id/profile_energyTarget_metric"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="2300 calories"
+                    android:text="@string/profile_energyTarget_metric_default"
+                    android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/profile_energyTarget_imperial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_energyTarget_imperial_default"
                     android:textSize="24sp" />
             </LinearLayout>
             <LinearLayout
