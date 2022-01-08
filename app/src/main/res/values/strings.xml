@@ -12,19 +12,19 @@
     <string name="menu_profile">Profile</string>
     <!-- steps -->
     <string name="steps_steps">Steps</string>
-    <string name="energyGoal_title_metric">Kilojoules Remaining</string>
-    <string name="energyGoal_title_imperial">Calories Remaining</string>
-    <string name="energyGoal_goal_title">target</string>
-    <string name="energyGoal_goal_value">0</string>
-    <string name="energyGoal_goal_minus">-</string>
-    <string name="energyGoal_food_title">Food</string>
-    <string name="energyGoal_food_value">0</string>
-    <string name="energyGoal_food_plus">+</string>
-    <string name="energyGoal_exercise_title">Exercise</string>
-    <string name="energyGoal_exercise_value">0</string>
-    <string name="energyGoal_exercise_equals">=</string>
-    <string name="energyGoal_remaining_title">Remaining</string>
-    <string name="energyGoal_remaining_value">0</string>
+    <string name="goalCard_title_metric">Kilojoules Remaining</string>
+    <string name="goalCard_title_imperial">Calories Remaining</string>
+    <string name="goalCard_goal_title">target</string>
+    <string name="goalCard_goal_value">0</string>
+    <string name="goalCard_goal_minus">-</string>
+    <string name="goalCard_food_title">Food</string>
+    <string name="goalCard_food_value">0</string>
+    <string name="goalCard_food_plus">+</string>
+    <string name="goalCard_exercise_title">Exercise</string>
+    <string name="goalCard_exercise_value">0</string>
+    <string name="goalCard_exercise_equals">=</string>
+    <string name="goalCard_remaining_title">Remaining</string>
+    <string name="goalCard_remaining_value">0</string>
     <!-- profile -->
     <string name="profile_weight">Weight</string>
     <string name="profile_weight_metric_default">0.0kg</string>

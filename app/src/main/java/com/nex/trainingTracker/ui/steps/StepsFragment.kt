@@ -160,13 +160,35 @@ class StepsFragment : Fragment(), SensorEventListener {
         Log.d(TAG, "systemOfMeasurement: $systemOfMeasurement")
 
         if(systemOfMeasurement == "imperial"){
-            binding.energyGoalTitleMetric.visibility = View.INVISIBLE
-            binding.energyGoalTitleImperial.visibility = View.VISIBLE
+            binding.goalCardTitleMetric.visibility = View.INVISIBLE
+            binding.goalCardTitleImperial.visibility = View.VISIBLE
+            val targetImperial = sharedPreferences.getFloat("targetImperial", 0.0f)
+            val foodTotalImperial = sharedPreferences.getFloat("foodTotalImperial", 0.0f)
+            val exerciseTotalImperial = sharedPreferences.getFloat("exerciseTotalImperial", 0.0f)
+            val remainingImperial = sharedPreferences.getFloat("remainingImperial", 0.0f)
+            Log.d(TAG, "targetImperial: $targetImperial")
+            Log.d(TAG, "foodTotalImperial: $foodTotalImperial")
+            Log.d(TAG, "exerciseTotalImperial: $exerciseTotalImperial")
+            Log.d(TAG, "remainingImperial: $remainingImperial")
+            binding.goalCardTargetValue.text = targetImperial.toString()
+            binding.goalCardFoodValue.text = foodTotalImperial.toString()
+            binding.goalCardExerciseValue.text = exerciseTotalImperial.toString()
+            binding.goalCardRemainingValue.text = remainingImperial.toString()
         }else{
-            binding.energyGoalTitleImperial.visibility = View.INVISIBLE
-            binding.energyGoalTitleMetric.visibility = View.VISIBLE
+            binding.goalCardTitleImperial.visibility = View.INVISIBLE
+            binding.goalCardTitleMetric.visibility = View.VISIBLE
             val targetMetric = sharedPreferences.getFloat("targetMetric", 0.0f)
-            binding.energyGoalGoalValue.text = targetMetric.toString()
+            val foodTotalMetric = sharedPreferences.getFloat("foodTotalMetric", 0.0f)
+            val exerciseTotalMetric = sharedPreferences.getFloat("exerciseTotalMetric",0.0f)
+            val remainingMetric = sharedPreferences.getFloat("remainingMetric", 0.0f)
+            Log.d(TAG, "targetMetric: $targetMetric")
+            Log.d(TAG, "foodTotalMetric: $foodTotalMetric")
+            Log.d(TAG, "exerciseTotalMetric: $exerciseTotalMetric")
+            Log.d(TAG, "remainingMetric: $remainingMetric")
+            binding.goalCardTargetValue.text = targetMetric.toString()
+            binding.goalCardFoodValue.text = foodTotalMetric.toString()
+            binding.goalCardExerciseValue.text = exerciseTotalMetric.toString()
+            binding.goalCardRemainingValue.text = remainingMetric.toString()
         }//endif
     }//end loadData
 
@@ -175,6 +197,7 @@ class StepsFragment : Fragment(), SensorEventListener {
     }//end onAccuracyChanged
 
     private fun saveTestData() {
+        Log.d(TAG, "saveTestData()")
         val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val currentUser = preferences.getString("currentUser","")
         if(currentUser.isNullOrBlank()){
@@ -187,6 +210,12 @@ class StepsFragment : Fragment(), SensorEventListener {
         val sharedPreferences = requireActivity().getSharedPreferences(sharedPreferencesFilename, Context.MODE_PRIVATE)
         val sharedPreferencesEdit = sharedPreferences.edit()
         sharedPreferencesEdit.putString("systemOfMeasurement", "metric")
+        sharedPreferencesEdit.putFloat("foodTotalMetric", 1421.5f)
+        sharedPreferencesEdit.putFloat("foodTotalImperial", 338.45f)
+        sharedPreferencesEdit.putFloat("exerciseTotalMetric", 1786.2f)
+        sharedPreferencesEdit.putFloat("exerciseTotalImperial", 425.29f)
+        sharedPreferencesEdit.putFloat("remainingMetric",10024.728f)
+        sharedPreferencesEdit.putFloat("remainingImperial",2386.84f)
         sharedPreferencesEdit.apply()
     }//end saveTestData
 }//end class HomeFragment

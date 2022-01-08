@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <!-- A CardView that contains a TextView -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_energy_goal"
+        android:id="@+id/goalCard"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
@@ -16,20 +16,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/energyGoal_title_imperial"
+            android:id="@+id/goalCard_title_imperial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/energyGoal_title_imperial"
+            android:text="@string/goalCard_title_imperial"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textStyle="bold"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:visibility="invisible"/>
         <TextView
-            android:id="@+id/energyGoal_title_metric"
+            android:id="@+id/goalCard_title_metric"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/energyGoal_title_metric"
+            android:text="@string/goalCard_title_metric"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textStyle="bold"
             android:layout_marginStart="20dp"
@@ -45,59 +45,59 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/energyGoal_goal_value"
+                android:id="@+id/goalCard_target_value"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_goal_value"
+                android:text="@string/goalCard_goal_value"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/energyGoal_goal_minus"
+                android:id="@+id/goalCard_goal_minus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:text="@string/energyGoal_goal_minus"
+                android:text="@string/goalCard_goal_minus"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/energyGoal_food_value"
+                android:id="@+id/goalCard_food_value"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_food_value"
+                android:text="@string/goalCard_food_value"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/energyGoal_food_plus"
+                android:id="@+id/goalCard_food_plus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:text="@string/energyGoal_food_plus"
+                android:text="@string/goalCard_food_plus"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/energyGoal_exercise_value"
+                android:id="@+id/goalCard_exercise_value"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_exercise_value"
+                android:text="@string/goalCard_exercise_value"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/energyGoal_exercise_equals"
+                android:id="@+id/goalCard_exercise_equals"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:text="@string/energyGoal_exercise_equals"
+                android:text="@string/goalCard_exercise_equals"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/energyGoal_remaining_value"
+                android:id="@+id/goalCard_remaining_value"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_remaining_value"
+                android:text="@string/goalCard_remaining_value"
                 android:textAlignment="center" />
         </LinearLayout>
         <LinearLayout
@@ -109,53 +109,53 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/energyGoal_goal_title"
+                android:id="@+id/goalCard_target_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_goal_title"
+                android:text="@string/goalCard_goal_title"
                 android:textAlignment="center" />
             <TextView
-                android:id="@+id/energyGoal_goal_empty"
+                android:id="@+id/goalCard_goal_empty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text=""
                 android:layout_weight="0.3"/>
 
             <TextView
-                android:id="@+id/energyGoal_food_title"
+                android:id="@+id/goalCard_food_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_food_title"
+                android:text="@string/goalCard_food_title"
                 android:textAlignment="center" />
             <TextView
-                android:id="@+id/energyGoal_food_empty"
+                android:id="@+id/goalCard_food_empty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text=""
                 android:layout_weight="0.3"/>
 
             <TextView
-                android:id="@+id/energyGoal_exercise_title"
+                android:id="@+id/goalCard_exercise_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_exercise_title"
+                android:text="@string/goalCard_exercise_title"
                 android:textAlignment="center" />
             <TextView
-                android:id="@+id/energyGoal_exercise_empty"
+                android:id="@+id/goalCard_exercise_empty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text=""
                 android:layout_weight="0.3"/>
 
             <TextView
-                android:id="@+id/energyGoal_remaining_title"
+                android:id="@+id/goalCard_remaining_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/energyGoal_remaining_title"
+                android:text="@string/goalCard_remaining_title"
                 android:textAlignment="center" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -171,7 +171,7 @@
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_view_energy_goal" />
+        app:layout_constraintTop_toBottomOf="@id/goalCard" />
 
     <TextView
         android:id="@+id/tv_stepsTaken"
@@ -195,6 +195,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_view_energy_goal"
+        app:layout_constraintTop_toBottomOf="@id/goalCard"
         android:contentDescription="@string/general_space"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
