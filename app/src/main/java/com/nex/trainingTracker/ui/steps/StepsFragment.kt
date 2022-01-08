@@ -9,10 +9,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.nex.trainingTracker.R
+//import com.nex.trainingTracker.R
 import com.nex.trainingTracker.databinding.FragmentStepsBinding
 //for logging
 import android.util.Log
@@ -44,7 +43,6 @@ class StepsFragment : Fragment(), SensorEventListener {
     private var running = false
     private var totalSteps = 0f
     private var previousTotalSteps = 0f
-    private lateinit var tv_stepsTaken: TextView;
 
 
     override fun onCreateView(
@@ -64,16 +62,13 @@ class StepsFragment : Fragment(), SensorEventListener {
         })*/
         //Log.i(TAG, "onCreateView")
         loadData()
-        resetSteps()
-        // Adding a context of SENSOR_SERVICE aas Sensor Manager
-        //sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        // Adding a context of SENSOR_SERVICE as Sensor Manager
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         return root
     }//end onCreateView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tv_stepsTaken = view.findViewById<TextView>(R.id.tv_stepsTaken)
     }//end onViewCreated
 
     override fun onDestroyView() {
@@ -99,40 +94,15 @@ class StepsFragment : Fragment(), SensorEventListener {
     }//end onResume
 
     override fun onSensorChanged(event: SensorEvent?) {
-        // Calling the TextView that we made in activity_main.xml
-        // by the id given to that TextView
-
-        //var tv_stepsTaken = findViewById<TextView>(R.id.tv_stepsTaken)
-
         if (running) {
             totalSteps = event!!.values[0]
             // Current steps are calculated by taking the difference of total steps
             // and previous steps
             val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
             // It will show the current steps to the user
-            tv_stepsTaken.text = ("$currentSteps")
+            binding.tvStepsTaken.text = "$currentSteps"
         }//endif
     }//end onSensorChanged
-
-    fun resetSteps() {
-        /*var tv_stepsTaken = findViewById<TextView>(R.id.tv_stepsTaken)
-        tv_stepsTaken.setOnClickListener {
-            // This will give a toast message if the user want to reset the steps
-            Toast.makeText(this, "Long tap to reset steps", Toast.LENGTH_SHORT).show()
-        }
-
-        tv_stepsTaken.setOnLongClickListener {
-
-            previousTotalSteps = totalSteps
-
-            // When the user will click long tap on the screen,
-            // the steps will be reset to 0
-            tv_stepsTaken.text = 0.toString()
-            // This will save the data
-            saveData()
-            true
-        }*/
-    }//end resetSteps
 
     private fun saveData() {
         // Shared Preferences will allow us to save
@@ -196,7 +166,7 @@ class StepsFragment : Fragment(), SensorEventListener {
         // We do not have to write anything in this function for this app
     }//end onAccuracyChanged
 
-    private fun saveTestData() {
+    /*private fun saveTestData() {
         Log.d(TAG, "saveTestData()")
         val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val currentUser = preferences.getString("currentUser","")
@@ -217,5 +187,5 @@ class StepsFragment : Fragment(), SensorEventListener {
         sharedPreferencesEdit.putFloat("remainingMetric",10024.728f)
         sharedPreferencesEdit.putFloat("remainingImperial",2386.84f)
         sharedPreferencesEdit.apply()
-    }//end saveTestData
+    }//end saveTestData*/
 }//end class HomeFragment
