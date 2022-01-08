@@ -80,12 +80,27 @@ class ProfileFragment : Fragment() {
         val weightImperial = sharedPreferences.getFloat("weightImperial",0f)
         val heightMetric = sharedPreferences.getFloat("heightMetric", 0f)
         val heightImperial = sharedPreferences.getFloat("heightImperial",0f)
+        val bmrMetric = sharedPreferences.getFloat("bmrMetric",0f)
+        val bmrImperial = sharedPreferences.getFloat("bmrImperial",0f)
+        val targetMetric = sharedPreferences.getFloat("targetMetric",0f)
+        val targetImperial = sharedPreferences.getFloat("targetImperial",0f)
         Log.d(TAG, "weightMetric: $weightMetric")
         Log.d(TAG, "weightImperial: $weightImperial")
         Log.d(TAG, "heightMetric: $heightMetric")
         Log.d(TAG, "heightImperial: $heightImperial")
+        Log.d(TAG, "bmrMetric: $bmrMetric")
+        Log.d(TAG, "bmrImperial $bmrImperial")
+        Log.d(TAG, "targetMetric $targetMetric")
+        Log.d(TAG, "targetImperial $targetImperial")
         //set UI
-
+        binding.profileWeightMetric.text = weightMetric.toString() + "kg"
+        binding.profileWeightImperial.text = weightImperial.toString() + "lbs"
+        binding.profileHeightMetric.text = heightMetric.toString() + "cm"
+        binding.profileHeightImperial.text = heightImperial.toString() + "ft"
+        binding.profileBmrMetric.text = bmrMetric.toString() + "kj"
+        binding.profileBmrImperial.text = bmrImperial.toString() + "kcal"
+        binding.profileEnergyTargetMetric.text = targetMetric.toString() + "kj"
+        binding.profileEnergyTargetImperial.text = targetImperial.toString() + "kcal"
     }//end loadData
 
     /*
@@ -107,6 +122,10 @@ class ProfileFragment : Fragment() {
         sharedPreferencesEdit.putFloat("weightImperial", 180.779f)
         sharedPreferencesEdit.putFloat("heightMetric", 193.0f)
         sharedPreferencesEdit.putFloat("heightImperial", 6.332f)
+        sharedPreferencesEdit.putFloat("bmrMetric", 9660.0f)
+        sharedPreferencesEdit.putFloat("bmrImperial", 2300.0f)
+        sharedPreferencesEdit.putFloat("targetMetric", 9660.0f)
+        sharedPreferencesEdit.putFloat("targetImperial", 2300.0f)
         sharedPreferencesEdit.apply()
-    }//end saveData*/
+    }//end saveTestData*/
 }//end class ProfileFragment

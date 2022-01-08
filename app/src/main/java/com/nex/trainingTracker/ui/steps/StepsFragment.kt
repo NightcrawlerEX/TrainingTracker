@@ -33,6 +33,8 @@ class StepsFragment : Fragment(), SensorEventListener {
     private lateinit var stepsViewModel: StepsViewModel
     private var _binding: FragmentStepsBinding? = null
 
+    private val uniqueString = "TrainingTracker"//unique string for shared preferences
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -144,15 +146,47 @@ class StepsFragment : Fragment(), SensorEventListener {
 
     private fun loadData() {
         // In this function we will retrieve data
-        val sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-        val savedNumber = sharedPreferences.getFloat("key1", 0f)
+        val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val currentUser = preferences.getString("currentUser","")
+        if(currentUser.isNullOrBlank()){
+            Log.d(TAG, "Could not find current user")
+            return
+        }//endif
+        Log.d(TAG, "currentUser: $currentUser")
 
-        // Log.d is used for debugging purposes
-        Log.d("MainActivity", "$savedNumber")
-        previousTotalSteps = savedNumber
+        val sharedPreferencesFilename = uniqueString + currentUser
+        val sharedPreferences = requireActivity().getSharedPreferences(sharedPreferencesFilename, Context.MODE_PRIVATE)
+        val systemOfMeasurement = sharedPreferences.getString("systemOfMeasurement", "")
+        Log.d(TAG, "systemOfMeasurement: $systemOfMeasurement")
+
+        if(systemOfMeasurement == "imperial"){
+            binding.energyGoalTitleMetric.visibility = View.INVISIBLE
+            binding.energyGoalTitleImperial.visibility = View.VISIBLE
+        }else{
+            binding.energyGoalTitleImperial.visibility = View.INVISIBLE
+            binding.energyGoalTitleMetric.visibility = View.VISIBLE
+            val targetMetric = sharedPreferences.getFloat("targetMetric", 0.0f)
+            binding.energyGoalGoalValue.text = targetMetric.toString()
+        }//endif
     }//end loadData
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         // We do not have to write anything in this function for this app
     }//end onAccuracyChanged
+
+    private fun saveTestData() {
+        val preferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val currentUser = preferences.getString("currentUser","")
+        if(currentUser.isNullOrBlank()){
+            Log.d(TAG, "Could not find current user")
+            return
+        }//endif
+        Log.d(TAG, "currentUser: $currentUser")
+        val sharedPreferencesFilename = uniqueString + currentUser
+        Log.d(TAG, "sharedPreferencesFilename: $sharedPreferencesFilename")
+        val sharedPreferences = requireActivity().getSharedPreferences(sharedPreferencesFilename, Context.MODE_PRIVATE)
+        val sharedPreferencesEdit = sharedPreferences.edit()
+        sharedPreferencesEdit.putString("systemOfMeasurement", "metric")
+        sharedPreferencesEdit.apply()
+    }//end saveTestData
 }//end class HomeFragment

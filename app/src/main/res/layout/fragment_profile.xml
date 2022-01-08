@@ -3,17 +3,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="20dp">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff" >
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
             android:orientation="horizontal"
             android:baselineAligned="false">
             <LinearLayout
@@ -113,5 +105,4 @@
                     android:contentDescription="@string/profile_edit_button_description" />
             </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
 </ScrollView>
