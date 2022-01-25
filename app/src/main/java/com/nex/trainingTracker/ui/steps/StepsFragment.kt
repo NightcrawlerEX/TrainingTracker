@@ -17,6 +17,7 @@ import com.nex.trainingTracker.databinding.FragmentStepsBinding
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 
+
 private const val TAG = "StepFragmentLog" //for debugging
 /*
 ERROR       - Log.e(TAG, "")
@@ -28,13 +29,16 @@ VERBOSE     - Log.v(TAG, "")
 DEBUG and VERBOSE are not present in release builds
  */
 
+
+
+
 class StepsFragment : Fragment(), SensorEventListener {
 
     private lateinit var stepsViewModel: StepsViewModel
     private var _binding: FragmentStepsBinding? = null
     private val binding get() = _binding!!
     //step tracking stuff
-    private var sensorManager: SensorManager? = null
+    //private var sensorManager: SensorManager? = null
     private var bIsTrackingSteps = false
     private var totalSteps = 0f
     private var previousTotalSteps = 0f
@@ -56,7 +60,7 @@ class StepsFragment : Fragment(), SensorEventListener {
         _binding = FragmentStepsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         loadData()
-        sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        //sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         return root
     }//end onCreateView
 
@@ -68,21 +72,20 @@ class StepsFragment : Fragment(), SensorEventListener {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume()")
-        bIsTrackingSteps = true
+        /*bIsTrackingSteps = true
         val stepSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
         if (stepSensor == null) {
             //no step sensor available
         } else {
             sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI)
-        }//endif
+        }//endif*/
         loadData()
-
     }//end onResume
 
     override fun onStop() {
         super.onStop()
         Log.d(TAG, "onStop()")
-        sensorManager?.unregisterListener(this)
+        //sensorManager?.unregisterListener(this)
     }//end onStop
 
     override fun onSensorChanged(event: SensorEvent?) {
@@ -102,7 +105,7 @@ class StepsFragment : Fragment(), SensorEventListener {
             binding.exerciseStepsImperial.text = exerciseStepsImperial.toString() + "kcal"
             Log.d(TAG,"deltaSteps: $deltaSteps ,stepsToday: $stepsToday , totalSteps: $totalSteps")
             Log.d(TAG, "kj: $exerciseStepsMetric , kcal: $exerciseStepsImperial")
-            saveData()
+            //saveData()
         }//endif
     }//end onSensorChanged
 

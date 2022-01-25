@@ -2,18 +2,158 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_view_running_test"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:id="@+id/goalCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
             app:cardCornerRadius="4dp">
+            <TextView
+                android:id="@+id/goalCard_title_imperial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/goalCard_title_imperial"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textStyle="bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/goalCard_title_metric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/goalCard_title_metric"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textStyle="bold"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="40dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/goalCard_target_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_goal_value"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/goalCard_goal_minus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="@string/goalCard_goal_minus"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/goalCard_food_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_food_value"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/goalCard_food_plus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="@string/goalCard_food_plus"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/goalCard_exercise_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_exercise_value"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/goalCard_exercise_equals"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="@string/goalCard_exercise_equals"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/goalCard_remaining_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_remaining_value"
+                    android:textAlignment="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="60dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/goalCard_target_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_goal_title"
+                    android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/goalCard_goal_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_weight="0.3"/>
+
+                <TextView
+                    android:id="@+id/goalCard_food_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_food_title"
+                    android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/goalCard_food_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_weight="0.3"/>
+
+                <TextView
+                    android:id="@+id/goalCard_exercise_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_exercise_title"
+                    android:textAlignment="center" />
+                <TextView
+                    android:id="@+id/goalCard_exercise_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_weight="0.3"/>
+
+                <TextView
+                    android:id="@+id/goalCard_remaining_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/goalCard_remaining_title"
+                    android:textAlignment="center" />
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 </ScrollView>

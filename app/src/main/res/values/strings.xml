@@ -26,6 +26,7 @@
     <string name="goalCard_exercise_equals">=</string>
     <string name="goalCard_remaining_title">Remaining</string>
     <string name="goalCard_remaining_value">0</string>
+    <string name="stepEnergyExpenditureCard_title">Step Energy Used</string>
     <!-- profile -->
     <string name="profile_weight">Weight</string>
     <string name="profile_weight_metric_default">0.0kg</string>

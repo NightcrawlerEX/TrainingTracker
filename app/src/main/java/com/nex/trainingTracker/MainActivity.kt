@@ -1,5 +1,8 @@
 package com.nex.trainingTracker
 
+import android.app.AlarmManager
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
@@ -14,9 +17,20 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nex.trainingTracker.databinding.ActivityMainBinding
 import android.view.MenuItem
 import android.util.Log
-import androidx.fragment.app.FragmentManager
+import android.app.PendingIntent
+import java.util.*
+
+
+//import androidx.work.ExistingPeriodicWorkPolicy
+//import androidx.work.PeriodicWorkRequestBuilder
+//import androidx.work.WorkInfo
+//import androidx.work.WorkManager
+//import java.util.concurrent.TimeUnit
+
+//import androidx.fragment.app.FragmentManager
 
 private const val TAG = "MainActivityLog" //for debugging
+private const val ALARM_REQUEST_CODE = 1000
 /*
 ERROR       - Log.e(TAG, "")
 WARN        - Log.w(TAG, "")
@@ -32,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val uniqueString = "TrainingTracker"//unique string for shared preferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +66,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         Log.d(TAG, "onCreate")
+
+        this.createAlarmForSteps()
     }//end onCreate
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -102,4 +119,20 @@ class MainActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }//end onOptionsItemSelected
+
+    private fun createAlarmForSteps(){
+        Log.d(TAG, "createAlarmForSteps")
+
+        val calendar = Calendar.getInstance()
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this, StepAlarmReceiver::class.java);
+        val pendingIntent = PendingIntent.getBroadcast(this, ALARM_REQUEST_CODE,
+            intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        alarmManager.setInexactRepeating(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            AlarmManager.INTERVAL_FIFTEEN_MINUTES,
+            pendingIntent
+        )
+    }//end createAlarmForSteps
 }//end class MainActivity
